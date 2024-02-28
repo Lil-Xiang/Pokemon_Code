@@ -10,7 +10,7 @@ const computedAllTypes = computed(() => {
   return pokedexStore.alltypes ? pokedexStore.alltypes : "-";
 });
 
-function specifyType(type='') {
+function specifyType(type = '') {
   clickType.value = type;
 }
 </script>
@@ -40,7 +40,7 @@ function specifyType(type='') {
       <div class="pokemonText">
         <h1>精靈圖鑑</h1>
       </div>
-      <div class="pokemonBox">
+      <div class="pokemonBox" @scroll="pokedexStore.scrolling">
         <PokemonBox :specifyType="clickType" />
       </div>
     </main>
@@ -54,6 +54,7 @@ function specifyType(type='') {
   height: 100vh;
   background: linear-gradient(to top, #1e2a5f, #60688c, #93949a);
 }
+
 .filterBox {
   display: flex;
   align-items: center;
@@ -62,12 +63,14 @@ function specifyType(type='') {
   width: 20%;
   height: 100vh;
 }
+
 .backContainer {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 15%;
+
   button {
     display: flex;
     justify-content: center;
@@ -79,6 +82,7 @@ function specifyType(type='') {
     border-radius: 10px;
     color: var(--white);
     background-color: var(--orange);
+
     img {
       height: 80%;
       object-fit: contain;
@@ -86,6 +90,7 @@ function specifyType(type='') {
     }
   }
 }
+
 .listContainer {
   display: flex;
   align-items: center;
@@ -93,6 +98,7 @@ function specifyType(type='') {
   width: 100%;
   height: 85%;
   overflow-y: scroll;
+
   span {
     display: flex;
     align-items: center;
@@ -102,6 +108,7 @@ function specifyType(type='') {
     width: 100%;
     height: 8%;
   }
+
   ul {
     display: flex;
     align-items: center;
@@ -109,6 +116,7 @@ function specifyType(type='') {
     width: 100%;
     height: 100%;
   }
+
   li {
     display: flex;
     align-items: center;
@@ -118,33 +126,38 @@ function specifyType(type='') {
     margin-top: 6px;
     width: 90px;
     height: 50px;
-    background-color: var(--navyBlue);  
+    background-color: var(--navyBlue);
     color: var(--white);
     border-radius: 5px;
     transition: 0.5s;
   }
+
   li:hover {
     font-size: 24px;
-    background-color: var(--darkBlue);  
+    background-color: var(--darkBlue);
   }
 }
+
 .showBox {
   display: flex;
   flex-direction: column;
   width: 80%;
   height: 100vh;
 }
+
 .pokemonText {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 15%;
+
   h1 {
     color: var(--white);
     font-size: 35px;
   }
 }
+
 .pokemonBox {
   display: flex;
   flex-wrap: wrap;
@@ -154,6 +167,7 @@ function specifyType(type='') {
   height: 85%;
   overflow-y: scroll;
 }
+
 @media screen and (max-width: 580px) {
   .backContainer {
     button {
@@ -163,21 +177,25 @@ function specifyType(type='') {
       border-radius: 10px;
     }
   }
+
   .listContainer {
     span {
       font-size: 25px;
     }
+
     li {
       font-size: 18px;
       margin-top: 10px;
       width: 70px;
       height: 40px;
     }
+
     li:hover {
       font-size: 20px;
     }
   }
 }
+
 @media screen and (max-width: 470px) {
   .backContainer {
     button {
@@ -187,16 +205,19 @@ function specifyType(type='') {
       border-radius: 8px;
     }
   }
+
   .listContainer {
     span {
       font-size: 23px;
     }
+
     li {
       font-size: 17px;
       margin-top: 10px;
       width: 60px;
       height: 30px;
     }
+
     li:hover {
       font-size: 19px;
     }
